@@ -1,0 +1,10 @@
+{
+  "name": "admin.mbr.components",
+  "version": "0.0.17",
+  "main": "index.js",
+  "author": "MBR Tech",
+  "license": "ISC",
+  "dependencies": {
+    "js-base64": "^3.6.0"
+  }
+}
