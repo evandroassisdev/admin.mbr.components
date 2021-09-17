@@ -139,6 +139,9 @@ export const Get = ({ commit, dispatch, state }, endereco) => {
       return resp.data
     })
     .catch(err => {
+      if (err.response.data.status.toUpperCase() === 'TOKEN EXPIRADO') {
+        dispatch('Logout')
+      }
       if (err.response.status === 401) {
         dispatch('ReLogin')
       }
