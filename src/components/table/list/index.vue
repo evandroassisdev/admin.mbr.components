@@ -31,6 +31,21 @@ export default {
         if (this.table.template) {
           this.table.manualData = resp
         } else {
+          if (this.table.controller === 'user') {
+            resp.forEach(r => {
+              if (r.enterprises.length >= 1) {
+                r.enterprises.forEach(e => {
+                  const enterprise = e.enterprise
+                  delete r.enterprises
+                  r.enterprises = []
+                  r.enterprises.push(enterprise)
+                  this.registros.push(r)
+                })
+              } else {
+                this.registros.push(r)
+              }
+            })
+          }
           this.registros = resp
         }
       })
